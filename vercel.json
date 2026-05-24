@@ -1,0 +1,11 @@
+{
+  "buildCommand": "echo 'Static HTML'",
+  "outputDirectory": "./saveweb2zip-com-davivaladares-com-br",
+  "public": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ]
+}
