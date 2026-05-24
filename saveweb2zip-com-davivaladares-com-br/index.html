@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtificialCtrl — Taller en Vivo: IA para Clínicas</title>
+  <meta name="description" content="Taller en vivo: implementa IA en tu clínica y detén la pérdida de pacientes.">
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Inter:wght@300;400&display=swap');
+  </style>
+
+  <!-- Geist Mono (fallback to monospace if needed) -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3756688057970000');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3756688057970000&ev=PageView&noscript=1" /></noscript>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #050505;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Noise Overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise' /%3E%3C/filter%3E%3Crect width='200' height='200' fill='%23ffffff' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Refraction Glow Background */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 50%;
+      width: 1000px;
+      height: 1000px;
+      background: radial-gradient(circle, rgba(191, 255, 0, 0.15) 0%, transparent 70%);
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(80px);
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 60px;
+    }
+
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav a:hover {
+      color: #BFFF00;
+    }
+
+    /* Laser Button */
+    .laser-btn {
+      background-color: #BFFF00;
+      color: #000000;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .laser-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-20deg);
+      animation: laser-sweep 0.6s ease-in-out;
+    }
+
+    .laser-btn:hover {
+      box-shadow: 0 0 30px rgba(191, 255, 0, 0.5), inset 0 0 20px rgba(191, 255, 0, 0.1);
+      transform: scale(1.05);
+    }
+
+    @keyframes laser-sweep {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 120px;
+      text-align: center;
+    }
+
+    .hero-3d-glass {
+      perspective: 1000px;
+      margin-bottom: 40px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 60px 40px;
+      transform: rotateX(5deg);
+      border-radius: 0;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-headline-wrapper {
+      border: 12px solid #ffffff;
+      padding: 40px;
+      margin: 0 auto 40px;
+      max-width: 900px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.6rem, 10vw, 6rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: #BFFF00;
+      text-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+      align-items: center;
+    }
+
+    .hero-status {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      color: #BFFF00;
+      text-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+    }
+
+    .hero-countdown {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: #BFFF00;
+      text-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+    }
+
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      margin-top: 40px;
+    }
+
+    /* Luminosity Card */
+    .luminosity-card {
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 2rem;
+      padding: 40px;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .luminosity-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(191, 255, 0, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .luminosity-card:hover {
+      border-color: rgba(191, 255, 0, 0.3);
+      background: radial-gradient(circle at top left, rgba(191, 255, 0, 0.05), transparent);
+      box-shadow: 0 0 30px rgba(191, 255, 0, 0.1);
+    }
+
+    .luminosity-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      color: #BFFF00;
+      text-shadow: 0 0 15px rgba(191, 255, 0, 0.2);
+      margin: 20px 0;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+
+    /* Features Grid */
+    .features-section {
+      margin-bottom: 120px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Feature Mockup Box */
+    .feature-mockup {
+      background: rgba(191, 255, 0, 0.05);
+      border: 1px solid rgba(191, 255, 0, 0.2);
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #BFFF00;
+      line-height: 1.6;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-shadow: 0 0 10px rgba(191, 255, 0, 0.3);
+    }
+
+    /* Social Proof */
+    .social-proof {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin: 80px 0;
+      flex-wrap: wrap;
+    }
+
+    .avatar-stack {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #BFFF00, rgba(191, 255, 0, 0.5));
+      border: 2px solid #BFFF00;
+      margin-left: -16px;
+      box-shadow: 0 0 20px rgba(191, 255, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      color: #000000;
+    }
+
+    .avatar:first-child {
+      margin-left: 0;
+    }
+
+    .proof-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* CTA Form Section */
+    .cta-form-section {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 500px;
+      margin: 40px auto 0;
+    }
+
+    .form-container input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-container input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-container button {
+      padding: 10px 20px;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      background: rgba(191, 255, 0, 0.05);
+      border: 2px solid rgba(191, 255, 0, 0.2);
+      border-radius: 16px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .footer-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      color: #BFFF00;
+      text-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 30px;
+    }
+
+    /* Mobile Bottom Nav */
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: none;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 0;
+      z-index: 100;
+    }
+
+    .mobile-nav a {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 50%;
+    }
+
+    .mobile-nav a:hover {
+      color: #BFFF00;
+      box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+      background: rgba(191, 255, 0, 0.05);
+    }
+
+    /* Scroll Reveal Animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes reveal-up {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .social-proof {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+      }
+
+      .footer-headline {
+        font-size: 1.8rem;
+      }
+
+      body {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">ArtificialCtrl</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#taller">Taller</a>
+        <a href="https://chat.whatsapp.com/I21W4HwDIqQAXS831fiMh8?mode=gi_t" class="laser-btn">Acceder</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-3d-glass">
+        <div class="hero-card">
+          <div class="hero-headline-wrapper">
+            <h1>Pierdes un paciente cada vez que no respondes</h1>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-status">
+              ● TALLER EN VIVO<br>
+              MIÉRCOLES 20:00<br>
+              ⚡ SIN GRABACIÓN
+            </div>
+            <div class="hero-countdown">
+              3 DÍAS
+            </div>
+          </div>
+
+          <p class="hero-description">
+            Mientras lees esto, otra clínica está respondiendo a tus pacientes.<br>
+            Este miércoles aprende a implementar IA y recupera esos pacientes que ya perdiste.
+          </p>
+
+          <div class="hero-cta">
+            <a href="https://chat.whatsapp.com/I21W4HwDIqQAXS831fiMh8?mode=gi_t" class="laser-btn">
+              QUIERO VER EL TALLER EN VIVO →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+      <div class="features-grid">
+        <div class="luminosity-card scroll-reveal">
+          <div class="card-index">01 / RESPUESTA 24/7</div>
+          <h3 class="card-title">Nunca pierdes un paciente</h3>
+          <p class="card-description">
+            La IA contesta mientras tú duermes. Mientras comes. Mientras estás en consulta. Tus pacientes nunca esperan, nunca se van a la competencia.
+          </p>
+          <div class="feature-mockup">
+            > paciente: ¿Horario?<br>
+            > IA: Lun-Vie 8am-6pm<br>
+            > paciente: Agendar
+          </div>
+        </div>
+
+        <div class="luminosity-card scroll-reveal" style="animation-delay: 0.1s;">
+          <div class="card-index">02 / RETENCIÓN</div>
+          <h3 class="card-title">Recupera el 40% de inasistencias</h3>
+          <p class="card-description">
+            Recordatorios automáticos a las 24 horas. Confirmaciones de cita. Los pacientes nunca olvidan, nunca se van a competencia. Tu secretaria vuelve a atender pacientes, no a hacer llamadas desesperadas.
+          </p>
+          <div class="feature-mockup">
+            [MAR 19/05 20:00]<br>
+            > Recordatorio cita mañana<br>
+            > Paciente: ✓ Confirmo<br>
+            ✓ -40% inasistencias
+          </div>
+        </div>
+
+        <div class="luminosity-card scroll-reveal" style="animation-delay: 0.2s;">
+          <div class="card-index">03 / EQUIPO LIBRE</div>
+          <h3 class="card-title">Ahorra $3000/mes sin contratar</h3>
+          <p class="card-description">
+            La IA maneja 100% de consultas repetidas. Tu secretaria atiende solo lo urgente. Recuperas horas de trabajo productivo. Cero nóminas nuevas. Solo el resultado que necesitabas.
+          </p>
+          <div class="feature-mockup">
+            ANTES: Secretaria 8h<br>
+            DESPUÉS: Secretaria 4h<br>
+            IA: 100% mensajes<br>
+            Ahorro: $3000/mes
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+      <div class="avatar-stack">
+        <div class="avatar">C</div>
+        <div class="avatar" style="background: linear-gradient(135deg, #FF6B9D, rgba(255, 107, 157, 0.5)); border-color: #FF6B9D;">A</div>
+        <div class="avatar" style="background: linear-gradient(135deg, #4D96FF, rgba(77, 150, 255, 0.5)); border-color: #4D96FF;">I</div>
+        <div class="avatar" style="background: linear-gradient(135deg, #FFA500, rgba(255, 165, 0, 0.5)); border-color: #FFA500;">A</div>
+      </div>
+      <div class="proof-text">
+        /// EN VIVO MIÉRCOLES 20:00 • SIN GRABACIÓN • ACCESO ÚNICO
+      </div>
+    </section>
+
+    <!-- CTA Form -->
+    <section class="cta-form-section" id="taller">
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; text-transform: uppercase; color: #BFFF00; text-shadow: 0 0 20px rgba(191, 255, 0, 0.3); margin-bottom: 20px;">
+        Los cupos se cierran a las 20:00
+      </h2>
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.5);">
+        DESPUÉS NO HAY MÁS ACCESO. CONFIRMA AHORA.
+      </p>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+      <h2 class="footer-headline">Entra Ahora Antes de que se Cierre</h2>
+      <p class="footer-meta">ACCESO INMEDIATO POR WHATSAPP. SIN REGISTROS. SIN ESPERAS.</p>
+      <a href="https://chat.whatsapp.com/I21W4HwDIqQAXS831fiMh8?mode=gi_t" class="laser-btn">
+        ACCEDER AL TALLER GRATIS →
+      </a>
+    </section>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav">
+    <a href="#features" title="Features">⚡</a>
+    <a href="#taller" title="Taller">📅</a>
+    <a href="https://chat.whatsapp.com/I21W4HwDIqQAXS831fiMh8?mode=gi_t" title="WhatsApp">💬</a>
+  </nav>
+
+  <script>
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+    // Countdown timer
+    function updateCountdown() {
+      const now = new Date();
+      const targetDay = new Date();
+      targetDay.setDate(targetDay.getDate() + (3 - targetDay.getDay() + 7) % 7 || 7);
+      targetDay.setHours(20, 0, 0, 0);
+
+      const diff = targetDay - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      const countdownEl = document.querySelector('.hero-countdown');
+      if (countdownEl) {
+        countdownEl.textContent = days + ' DÍAS';
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
+</body>
+</html>
