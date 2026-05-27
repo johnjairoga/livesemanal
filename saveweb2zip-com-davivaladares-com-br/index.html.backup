@@ -1,0 +1,740 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><script async="" src="js/fbevents.js"></script><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+		<title>01 – Captura Webinar – Pag 01 V10.2 – ADS – Davi Valadares</title>
+<link data-rocket-prefetch="" href="https://connect.facebook.net" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://cdn.utmify.com.br" rel="dns-prefetch">
+<link data-rocket-preload="" as="style" data-wpr-hosted-gf-parameters="family=Noto%20Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap" href="css/be96db41f1dbd8bd48c260b5b29b3.css" rel="preload">
+<link crossorigin="" data-rocket-preload="" as="font" href="https://davivaladares.com.br/wp-content/cache/fonts/1/google-fonts/fonts/s/notosans/v42/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevtuXOm.woff2" rel="preload">
+<link data-wpr-hosted-gf-parameters="family=Noto%20Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap" href="css/be96db41f1dbd8bd48c260b5b29b3.css" media="print" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap"></noscript><link rel="preload" data-rocket-preload="" as="image" href="https://davivaladares.com.br/wp-content/uploads/2026/02/shape.webp" fetchpriority="high">
+<meta name="robots" content="max-image-preview:large">
+<script type="application/javascript" id="pys-version-script">console.log('PixelYourSite Free version 11.2.0.5');</script>
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Feed para Davi Valadares »" href="https://davivaladares.com.br/feed/">
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Davi Valadares »" href="https://davivaladares.com.br/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://davivaladares.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdavivaladares.com.br%2Fcap-web-pag-01v7-ads%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://davivaladares.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdavivaladares.com.br%2Fcap-web-pag-01v7-ads%2F&format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="hello-elementor-css" href="css/reset.css" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-theme-style-css" href="css/theme.css" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-header-footer-css" href="css/header-footer.css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="css/frontend.min.css" media="all">
+<link rel="stylesheet" id="elementor-post-8-css" href="css/post-8.css" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="css/widget-heading.min.css" media="all">
+<link rel="stylesheet" id="widget-image-box-css" href="css/widget-image-box.min.css" media="all">
+<link rel="stylesheet" id="widget-icon-list-css" href="css/widget-icon-list.min.css" media="all">
+<link rel="stylesheet" id="widget-icon-box-css" href="css/widget-icon-box.min.css" media="all">
+<link rel="stylesheet" id="elementor-post-513-css" href="css/post-513.css" media="all">
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-034641d5-6c97-46a0-95d9-2227df421a25) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}.wp-embed-responsive .wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+
+<script id="jquery-core-js-extra">window.addEventListener('DOMContentLoaded', function() {
+var pysFacebookRest = {"restApiUrl":"https://davivaladares.com.br/wp-json/pys-facebook/v1/event","debug":""};
+//# sourceURL=jquery-core-js-extra
+});</script>
+<script src="js/jquery.min.js" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<link rel="https://api.w.org/" href="https://davivaladares.com.br/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://davivaladares.com.br/wp-json/wp/v2/pages/513"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://davivaladares.com.br/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="canonical" href="https://davivaladares.com.br/cap-web-pag-01v7-ads/">
+<link rel="shortlink" href="https://davivaladares.com.br/?p=513">
+<meta name="cdp-version" content="1.5.4"><!-- HFCM by 99 Robots - Snippet # 5: PIXEL FB -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '715930298010517');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=715930298010517&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 6: UTMFY - SITE WIDE -->
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://davivaladares.com.br/wp-content/cache/min/1/scripts/utms/latest.js?ver=1779141461" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+<script>
+  window.pixelId = "69aaede4a806d411b1620e0b";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script><script async="" defer="" src="js/pixel.js"></script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 9: PIXEL NOVO -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1809636656843764');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1809636656843764&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- /end HFCM by 99 Robots -->
+<meta name="generator" content="Elementor 4.0.8; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="images/cropped-favicon-davi-32x32.webp" sizes="32x32">
+<link rel="icon" href="images/cropped-favicon-davi-192x192.webp" sizes="192x192">
+<link rel="apple-touch-icon" href="images/cropped-favicon-davi-180x180.webp">
+<meta name="msapplication-TileImage" content="https://davivaladares.com.br/wp-content/uploads/2026/02/cropped-favicon-davi-270x270.webp">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><style id="wpr-lazyload-bg-container"></style><style>.elementor-513 .elementor-element.elementor-element-c8d64fa:not(.elementor-motion-effects-element-type-background), .elementor-513 .elementor-element.elementor-element-c8d64fa > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-19046de9-152e-41bf-893b-ab93d53a8ae2: url('images/Ellipse-6.webp');}</style><style id="wpr-lazyload-bg-exclusion">.dest::before{--wpr-bg-b9ca7cf6-2470-4a89-b25e-1a244daf6c51: url('images/shape.webp');}.dest1::before{--wpr-bg-3b41787e-4e7b-472c-ac19-2e3c0ddbe7d4: url('images/shape.webp');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.elementor-513 .elementor-element.elementor-element-c8d64fa:not(.elementor-motion-effects-element-type-background), .elementor-513 .elementor-element.elementor-element-c8d64fa > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-19046de9-152e-41bf-893b-ab93d53a8ae2: url('https://davivaladares.com.br/wp-content/uploads/2026/02/Ellipse-6.webp');}.rll-youtube-player .play{--wpr-bg-034641d5-6c97-46a0-95d9-2227df421a25: url('https://davivaladares.com.br/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".elementor-513 .elementor-element.elementor-element-c8d64fa:not(.elementor-motion-effects-element-type-background), .elementor-513 .elementor-element.elementor-element-c8d64fa > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-513 .elementor-element.elementor-element-c8d64fa:not(.elementor-motion-effects-element-type-background), .elementor-513 .elementor-element.elementor-element-c8d64fa > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-19046de9-152e-41bf-893b-ab93d53a8ae2: url('https:\/\/davivaladares.com.br\/wp-content\/uploads\/2026\/02\/Ellipse-6.webp');}","hash":"19046de9-152e-41bf-893b-ab93d53a8ae2","url":"https:\/\/davivaladares.com.br\/wp-content\/uploads\/2026\/02\/Ellipse-6.webp"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-034641d5-6c97-46a0-95d9-2227df421a25: url('https:\/\/davivaladares.com.br\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"034641d5-6c97-46a0-95d9-2227df421a25","url":"https:\/\/davivaladares.com.br\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [{"selector":".dest","style":".dest::before{--wpr-bg-b9ca7cf6-2470-4a89-b25e-1a244daf6c51: url('https:\/\/davivaladares.com.br\/wp-content\/uploads\/2026\/02\/shape.webp');}","hash":"b9ca7cf6-2470-4a89-b25e-1a244daf6c51","url":"https:\/\/davivaladares.com.br\/wp-content\/uploads\/2026\/02\/shape.webp"},{"selector":".dest1","style":".dest1::before{--wpr-bg-3b41787e-4e7b-472c-ac19-2e3c0ddbe7d4: url('https:\/\/davivaladares.com.br\/wp-content\/uploads\/2026\/02\/shape.webp');}","hash":"3b41787e-4e7b-472c-ac19-2e3c0ddbe7d4","url":"https:\/\/davivaladares.com.br\/wp-content\/uploads\/2026\/02\/shape.webp"}];</script><meta name="generator" content="WP Rocket 3.20.4" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_auto_preload_fonts wpr_oci wpr_minify_css wpr_preload_links wpr_host_fonts_locally wpr_desktop"></head>
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-513 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-8 elementor-page elementor-page-513">
+			<div data-elementor-type="wp-page" data-elementor-id="513" class="elementor elementor-513" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-108a10f e-flex e-con-boxed e-con e-parent" data-id="108a10f" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-784b079 elementor-widget elementor-widget-heading" data-id="784b079" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</h2>				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7f7d567 e-flex e-con-boxed e-con e-parent" data-id="7f7d567" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-cfd635d e-con-full e-flex e-con e-child" data-id="cfd635d" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-343d9d7 elementor-widget__width-initial elementor-position-top elementor-widget elementor-widget-image-box" data-id="343d9d7" data-element_type="widget" data-e-type="widget" data-settings="{" _animation_mobile":"none"}"="" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="153" height="66" src="images/logo-davi-preto.webp" class="attachment-full size-full wp-image-460" alt="" srcset="images/logo-davi-preto.webp 153w, images/logo-davi-preto-150x66.webp 150w" sizes="(max-width: 153px) 100vw, 153px"></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Use o roteiro validado para <b>adicionar 2 a 3 contratos por semana </b>sem depender de indicação</h3><p class="elementor-image-box-description">Toque no botão abaixo e pegue o link do roteiro no grupo silencioso! 
+<br><br>
+Na próxima terça, eu abro uma aula prática e te ajudo a lapidar o seu. </p></div></div>				</div>
+				<div class="elementor-element elementor-element-243b007 elementor-align-center elementor-widget__width-initial elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="243b007" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://chat.whatsapp.com/HgWFdIUJkFO4YepCN1jV7d?mode=gi_t">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">PEGAR ROTEIRO GRÁTIS</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-836858a elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="836858a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">O link leva para o grupo onde o roteiro está disponível. <br></h2>				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7d215ab e-con-full e-flex e-con e-parent" data-id="7d215ab" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-9cfde25 elementor-icon-list--layout-inline carrossel elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="9cfde25" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+							<div class="elementor-icon-list-items elementor-inline-items"><div class="carrossel-ativo">
+							<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</span>
+									</span>
+								<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text"><b>DAVI VALADARES</b></span>
+									</span>
+						
+							<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</span>
+									</span>
+								<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text"><b>DAVI VALADARES</b></span>
+									</span>
+						
+							<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</span>
+									</span>
+								<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text"><b>DAVI VALADARES</b></span>
+									</span>
+						</div></div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-f31bf2a e-con-full e-flex e-con e-parent" data-id="f31bf2a" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-5a8b1b8 elementor-icon-list--layout-inline carrossel elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5a8b1b8" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+							<div class="elementor-icon-list-items elementor-inline-items"><div class="carrossel-ativo">
+							<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</span>
+									</span>
+								<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text"><b>DAVI VALADARES</b></span>
+									</span>
+						
+							<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</span>
+									</span>
+								<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text"><b>DAVI VALADARES</b></span>
+									</span>
+						
+							<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">EXCLUSIVO PARA MENTORES E PRESTADORES DE SERVIÇO</span>
+									</span>
+								<span class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text"><b>DAVI VALADARES</b></span>
+									</span>
+						</div></div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-c8d64fa e-flex e-con-boxed e-con e-parent" data-id="c8d64fa" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="" data-rocket-lazy-bg-19046de9-152e-41bf-893b-ab93d53a8ae2="loaded">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-4da06f2 elementor-widget elementor-widget-heading" data-id="4da06f2" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">NA PRÓXIMA TERÇA VOCÊ <span class="dest" data-rocket-lazy-bg-b9ca7cf6-2470-4a89-b25e-1a244daf6c51="excluded">VAI VER NA PRATICA<span class="dest1" data-rocket-lazy-bg-3b41787e-4e7b-472c-ac19-2e3c0ddbe7d4="excluded"><span style="font-size: 8vw"></span></span></span></h2>				</div>
+		<div class="elementor-element elementor-element-8e26460 e-con-full e-flex e-con e-child" data-id="8e26460" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-06d9c05 e-con-full card e-flex e-con e-child" data-id="06d9c05" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-2593f74 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="2593f74" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="147" height="142" viewBox="0 0 147 142" fill="none"><circle cx="74.5579" cy="71" r="71" fill="#FF5900"></circle><path d="M8.34333 42.942L6.66002 41.8619L8.34333 42.942ZM71.6864 3.31964L71.5344 1.32543L71.6864 3.31964ZM96.4961 6.77525L95.8053 8.65216L96.4961 6.77525ZM121.203 17.0874L122.045 15.2733L121.203 17.0874ZM140.27 35.5521L138.487 36.4582L140.27 35.5521ZM143.171 59.567L141.258 58.9826L143.171 59.567ZM142.319 83.6437L140.382 83.1474C138.247 91.4807 135.472 99.7491 132.054 107.953L133.9 108.722L135.747 109.491C139.235 101.116 142.073 92.6651 144.256 84.14L142.319 83.6437ZM133.9 108.722L132.054 107.953C128.743 115.903 123.573 122.475 116.512 127.694L117.7 129.302L118.889 130.911C126.522 125.269 132.152 118.121 135.747 109.491L133.9 108.722ZM117.7 129.302L116.512 127.694C109.529 132.855 101.79 135.227 93.2227 134.844L93.1334 136.842L93.0441 138.84C102.538 139.265 111.178 136.61 118.889 130.911L117.7 129.302ZM93.1334 136.842L93.2227 134.844C84.1914 134.441 75.5678 134.058 67.3521 133.695L67.2639 135.693L67.1757 137.691C75.3907 138.054 84.0135 138.437 93.0441 138.84L93.1334 136.842ZM67.2639 135.693L67.3521 133.695C59.2264 133.336 50.597 132.403 41.4618 130.891L41.1352 132.864L40.8086 134.837C50.081 136.372 58.8707 137.325 67.1757 137.691L67.2639 135.693ZM41.1352 132.864L41.4618 130.891C32.879 129.47 26.7158 124.975 22.7984 117.296L21.0168 118.204L19.2353 119.113C23.7348 127.933 30.9839 133.211 40.8086 134.837L41.1352 132.864ZM21.0168 118.204L22.7984 117.296C18.5989 109.064 14.6316 100.986 10.8965 93.063L9.08743 93.9158L7.27837 94.7687C11.0322 102.731 15.0178 110.846 19.2353 119.113L21.0168 118.204ZM9.08743 93.9158L10.8965 93.063C7.25567 85.34 5.01413 77.0174 4.17988 68.0815L2.18854 68.2674L0.197197 68.4533C1.07256 77.8296 3.43029 86.606 7.27837 94.7687L9.08743 93.9158ZM2.18854 68.2674L4.17988 68.0815C3.3665 59.3691 5.31015 51.3731 10.0266 44.022L8.34333 42.942L6.66002 41.8619C1.4605 49.9659 -0.699043 58.8534 0.197197 68.4533L2.18854 68.2674ZM8.34333 42.942L10.0266 44.022C14.8772 36.462 20.5725 30.03 27.1095 24.7111L25.8472 23.1598L24.5849 21.6084C17.6995 27.2109 11.7255 33.967 6.66002 41.8619L8.34333 42.942ZM25.8472 23.1598L27.1095 24.7111C33.6952 19.3526 40.7429 14.9321 48.2546 11.4451L47.4125 9.63101L46.5704 7.81695C38.7508 11.4469 31.4217 16.0456 24.5849 21.6084L25.8472 23.1598ZM47.4125 9.63101L48.2546 11.4451C55.7005 7.98858 63.5578 5.94492 71.8384 5.31386L71.6864 3.31964L71.5344 1.32543C62.7811 1.99251 54.4558 4.15642 46.5704 7.81695L47.4125 9.63101ZM71.6864 3.31964L71.8384 5.31386C80.069 4.68661 88.0515 5.79837 95.8053 8.65216L96.4961 6.77525L97.1869 4.89834C88.8951 1.84652 80.3378 0.654536 71.5344 1.32543L71.6864 3.31964ZM96.4961 6.77525L95.8053 8.65216C103.773 11.5845 111.958 15.0005 120.361 18.9015L121.203 17.0874L122.045 15.2733C113.552 11.3304 105.265 7.87161 97.1869 4.89834L96.4961 6.77525ZM121.203 17.0874L120.361 18.9015C128.399 22.6326 134.425 28.4655 138.487 36.4582L140.27 35.5521L142.053 34.646C137.59 25.863 130.905 19.386 122.045 15.2733L121.203 17.0874ZM140.27 35.5521L138.487 36.4582C142.561 44.4739 143.409 51.9435 141.258 58.9826L143.171 59.567L145.084 60.1514C147.591 51.9465 146.505 43.4062 142.053 34.646L140.27 35.5521ZM143.171 59.567L141.258 58.9826C140.086 62.8192 139.394 65.877 139.289 68.0451C139.238 69.0979 139.307 70.2076 139.737 71.1301C139.968 71.6246 140.327 72.1195 140.871 72.4836C141.424 72.8534 142.036 73 142.618 73V71V69C142.71 69 142.899 69.0275 143.096 69.1591C143.284 69.285 143.354 69.4227 143.363 69.4408C143.366 69.4482 143.33 69.3686 143.303 69.148C143.276 68.9333 143.265 68.6352 143.284 68.2384C143.363 66.5955 143.927 63.9367 145.084 60.1514L143.171 59.567ZM142.618 71V73C142.482 73 142.273 72.9555 142.078 72.8136C141.904 72.6863 141.858 72.5658 141.872 72.5979C141.924 72.7162 142.037 73.1493 142.014 74.1136C141.97 75.9816 141.454 78.9589 140.382 83.1474L142.319 83.6437L144.256 84.14C145.343 79.8994 145.957 76.5548 146.013 74.2082C146.04 73.0653 145.944 71.9179 145.531 70.9826C145.313 70.4879 144.971 69.9722 144.435 69.5815C143.879 69.1762 143.244 69 142.618 69V71Z" fill="#F8E9D1"></path><path d="M87.0579 59.75H82.7267L80.597 56.5563C80.4829 56.3852 80.3284 56.245 80.1471 56.148C79.9659 56.051 79.7635 56.0001 79.5579 56H69.5579C69.3523 56.0001 69.15 56.051 68.9687 56.148C68.7875 56.245 68.633 56.3852 68.5189 56.5563L66.3876 59.75H62.0579C61.0634 59.75 60.1095 60.1451 59.4063 60.8483C58.703 61.5516 58.3079 62.5054 58.3079 63.5V81C58.3079 81.9946 58.703 82.9484 59.4063 83.6517C60.1095 84.3549 61.0634 84.75 62.0579 84.75H87.0579C88.0525 84.75 89.0063 84.3549 89.7096 83.6517C90.4128 82.9484 90.8079 81.9946 90.8079 81V63.5C90.8079 62.5054 90.4128 61.5516 89.7096 60.8483C89.0063 60.1451 88.0525 59.75 87.0579 59.75ZM80.1829 71.625C80.1829 72.7375 79.853 73.8251 79.2349 74.7501C78.6169 75.6751 77.7383 76.3961 76.7105 76.8218C75.6827 77.2476 74.5517 77.359 73.4605 77.1419C72.3694 76.9249 71.3671 76.3891 70.5804 75.6025C69.7938 74.8158 69.258 73.8135 69.041 72.7224C68.824 71.6312 68.9354 70.5002 69.3611 69.4724C69.7868 68.4446 70.5078 67.5661 71.4328 66.948C72.3579 66.3299 73.4454 66 74.5579 66C76.0498 66 77.4805 66.5926 78.5354 67.6475C79.5903 68.7024 80.1829 70.1332 80.1829 71.625Z" fill="white"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						<b>Captação Qualificada:</b> <br>Eu vou te mostrar o sistema semanal de geração de demanda qualificada que usamos para captar lead entre 9 e 15 reais.<i> (Não é formulário de aplicação)</i>					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-fa3f842 e-con-full card e-flex e-con e-child" data-id="fa3f842" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-971aa77 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="971aa77" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="147" height="142" viewBox="0 0 147 142" fill="none"><circle cx="74.5579" cy="71" r="71" fill="#FF5900"></circle><path d="M8.34327 42.942L6.65996 41.8619L8.34327 42.942ZM71.6864 3.31964L71.5344 1.32543L71.6864 3.31964ZM96.496 6.77525L95.8052 8.65216L96.496 6.77525ZM121.203 17.0874L122.045 15.2733L121.203 17.0874ZM140.27 35.5521L138.487 36.4582L140.27 35.5521ZM143.171 59.567L141.258 58.9826L143.171 59.567ZM142.319 83.6437L140.381 83.1474C138.247 91.4807 135.471 99.7491 132.054 107.953L133.9 108.722L135.747 109.491C139.235 101.116 142.072 92.6651 144.256 84.14L142.319 83.6437ZM133.9 108.722L132.054 107.953C128.743 115.903 123.573 122.475 116.512 127.694L117.7 129.302L118.889 130.911C126.522 125.269 132.152 118.121 135.747 109.491L133.9 108.722ZM117.7 129.302L116.512 127.694C109.529 132.855 101.79 135.227 93.2226 134.844L93.1333 136.842L93.044 138.84C102.538 139.265 111.178 136.61 118.889 130.911L117.7 129.302ZM93.1333 136.842L93.2226 134.844C84.1913 134.441 75.5678 134.058 67.352 133.695L67.2638 135.693L67.1757 137.691C75.3906 138.054 84.0134 138.437 93.044 138.84L93.1333 136.842ZM67.2638 135.693L67.352 133.695C59.2263 133.336 50.5969 132.403 41.4618 130.891L41.1352 132.864L40.8085 134.837C50.0809 136.372 58.8706 137.325 67.1757 137.691L67.2638 135.693ZM41.1352 132.864L41.4618 130.891C32.879 129.47 26.7158 124.975 22.7983 117.296L21.0168 118.204L19.2352 119.113C23.7347 127.933 30.9838 133.211 40.8085 134.837L41.1352 132.864ZM21.0168 118.204L22.7983 117.296C18.5988 109.064 14.6315 100.986 10.8964 93.063L9.08737 93.9158L7.27831 94.7687C11.0321 102.731 15.0178 110.846 19.2352 119.113L21.0168 118.204ZM9.08737 93.9158L10.8964 93.063C7.25561 85.34 5.01407 77.0174 4.17982 68.0815L2.18848 68.2674L0.197136 68.4533C1.0725 77.8296 3.43022 86.606 7.27831 94.7687L9.08737 93.9158ZM2.18848 68.2674L4.17982 68.0815C3.36644 59.3691 5.31009 51.3731 10.0266 44.022L8.34327 42.942L6.65996 41.8619C1.46044 49.9659 -0.699104 58.8534 0.197136 68.4533L2.18848 68.2674ZM8.34327 42.942L10.0266 44.022C14.8771 36.462 20.5724 30.03 27.1094 24.7111L25.8471 23.1598L24.5849 21.6084C17.6994 27.2109 11.7254 33.967 6.65996 41.8619L8.34327 42.942ZM25.8471 23.1598L27.1094 24.7111C33.6951 19.3526 40.7429 14.9321 48.2546 11.4451L47.4124 9.63101L46.5703 7.81695C38.7507 11.4469 31.4216 16.0456 24.5849 21.6084L25.8471 23.1598ZM47.4124 9.63101L48.2546 11.4451C55.7004 7.98858 63.5577 5.94492 71.8383 5.31386L71.6864 3.31964L71.5344 1.32543C62.781 1.99251 54.4557 4.15642 46.5703 7.81695L47.4124 9.63101ZM71.6864 3.31964L71.8383 5.31386C80.069 4.68661 88.0515 5.79837 95.8052 8.65216L96.496 6.77525L97.1868 4.89834C88.895 1.84652 80.3377 0.654536 71.5344 1.32543L71.6864 3.31964ZM96.496 6.77525L95.8052 8.65216C103.772 11.5845 111.958 15.0005 120.361 18.9015L121.203 17.0874L122.045 15.2733C113.551 11.3304 105.265 7.87161 97.1868 4.89834L96.496 6.77525ZM121.203 17.0874L120.361 18.9015C128.399 22.6326 134.425 28.4655 138.487 36.4582L140.27 35.5521L142.053 34.646C137.59 25.863 130.905 19.386 122.045 15.2733L121.203 17.0874ZM140.27 35.5521L138.487 36.4582C142.561 44.4739 143.409 51.9435 141.258 58.9826L143.171 59.567L145.084 60.1514C147.591 51.9465 146.505 43.4062 142.053 34.646L140.27 35.5521ZM143.171 59.567L141.258 58.9826C140.086 62.8192 139.393 65.877 139.289 68.0451C139.238 69.0979 139.307 70.2076 139.737 71.1301C139.967 71.6246 140.327 72.1195 140.871 72.4836C141.424 72.8534 142.036 73 142.618 73V71V69C142.71 69 142.899 69.0275 143.096 69.1591C143.284 69.285 143.354 69.4227 143.363 69.4408C143.366 69.4482 143.33 69.3686 143.303 69.148C143.276 68.9333 143.265 68.6352 143.284 68.2384C143.363 66.5955 143.927 63.9367 145.084 60.1514L143.171 59.567ZM142.618 71V73C142.482 73 142.273 72.9555 142.078 72.8136C141.903 72.6863 141.858 72.5658 141.872 72.5979C141.924 72.7162 142.036 73.1493 142.014 74.1136C141.97 75.9816 141.454 78.9589 140.381 83.1474L142.319 83.6437L144.256 84.14C145.343 79.8994 145.957 76.5548 146.013 74.2082C146.04 73.0653 145.944 71.9179 145.531 70.9826C145.313 70.4879 144.97 69.9722 144.435 69.5815C143.879 69.1762 143.244 69 142.618 69V71Z" fill="#F8E9D1"></path><path d="M92.0578 59.75V69.75C92.058 69.9974 91.9848 70.2392 91.8475 70.445C91.7101 70.6507 91.5148 70.8111 91.2863 70.9058C91.0578 71.0005 90.8063 71.0252 90.5637 70.9769C90.3211 70.9286 90.0983 70.8094 89.9234 70.6344L85.8078 66.5172L76.6922 75.6344C76.5761 75.7506 76.4382 75.8428 76.2865 75.9057C76.1347 75.9686 75.9721 76.001 75.8078 76.001C75.6436 76.001 75.4809 75.9686 75.3291 75.9057C75.1774 75.8428 75.0395 75.7506 74.9234 75.6344L69.5578 70.2672L59.1922 80.6344C58.9576 80.8689 58.6395 81.0007 58.3078 81.0007C57.9761 81.0007 57.658 80.8689 57.4234 80.6344C57.1889 80.3998 57.0571 80.0817 57.0571 79.75C57.0571 79.4183 57.1889 79.1002 57.4234 78.8656L68.6734 67.6156C68.7895 67.4994 68.9274 67.4072 69.0791 67.3443C69.2309 67.2814 69.3936 67.249 69.5578 67.249C69.7221 67.249 69.8848 67.2814 70.0365 67.3443C70.1882 67.4072 70.3261 67.4994 70.4422 67.6156L75.8078 72.9828L84.0406 64.75L79.9234 60.6344C79.7484 60.4596 79.6292 60.2367 79.5809 59.9941C79.5326 59.7515 79.5574 59.5 79.652 59.2715C79.7467 59.043 79.9071 58.8477 80.1128 58.7103C80.3186 58.573 80.5605 58.4998 80.8078 58.5H90.8078C91.1393 58.5 91.4573 58.6317 91.6917 58.8661C91.9261 59.1005 92.0578 59.4185 92.0578 59.75Z" fill="white"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						<b>Elefante Rosa:</b> <br>Como resolver o defeito mais obvio do seu funil de aquisição. <i>(o que mais trava seu crescimento)</i>					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-afb8d17 e-con-full card e-flex e-con e-child" data-id="afb8d17" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-element elementor-element-c233390 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="c233390" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="147" height="142" viewBox="0 0 147 142" fill="none"><circle cx="74.5579" cy="71" r="71" fill="#FF5900"></circle><path d="M8.34327 42.942L6.65996 41.8619L8.34327 42.942ZM71.6864 3.31964L71.5344 1.32543L71.6864 3.31964ZM96.496 6.77525L95.8052 8.65216L96.496 6.77525ZM121.203 17.0874L122.045 15.2733L121.203 17.0874ZM140.27 35.5521L138.487 36.4582L140.27 35.5521ZM143.171 59.567L141.258 58.9826L143.171 59.567ZM142.319 83.6437L140.381 83.1474C138.247 91.4807 135.471 99.7491 132.054 107.953L133.9 108.722L135.747 109.491C139.235 101.116 142.072 92.6651 144.256 84.14L142.319 83.6437ZM133.9 108.722L132.054 107.953C128.743 115.903 123.573 122.475 116.512 127.694L117.7 129.302L118.889 130.911C126.522 125.269 132.152 118.121 135.747 109.491L133.9 108.722ZM117.7 129.302L116.512 127.694C109.529 132.855 101.79 135.227 93.2226 134.844L93.1333 136.842L93.044 138.84C102.538 139.265 111.178 136.61 118.889 130.911L117.7 129.302ZM93.1333 136.842L93.2226 134.844C84.1913 134.441 75.5678 134.058 67.352 133.695L67.2638 135.693L67.1757 137.691C75.3906 138.054 84.0134 138.437 93.044 138.84L93.1333 136.842ZM67.2638 135.693L67.352 133.695C59.2263 133.336 50.5969 132.403 41.4618 130.891L41.1352 132.864L40.8085 134.837C50.0809 136.372 58.8706 137.325 67.1757 137.691L67.2638 135.693ZM41.1352 132.864L41.4618 130.891C32.879 129.47 26.7158 124.975 22.7983 117.296L21.0168 118.204L19.2352 119.113C23.7347 127.933 30.9838 133.211 40.8085 134.837L41.1352 132.864ZM21.0168 118.204L22.7983 117.296C18.5988 109.064 14.6315 100.986 10.8964 93.063L9.08737 93.9158L7.27831 94.7687C11.0321 102.731 15.0178 110.846 19.2352 119.113L21.0168 118.204ZM9.08737 93.9158L10.8964 93.063C7.25561 85.34 5.01407 77.0174 4.17982 68.0815L2.18848 68.2674L0.197136 68.4533C1.0725 77.8296 3.43022 86.606 7.27831 94.7687L9.08737 93.9158ZM2.18848 68.2674L4.17982 68.0815C3.36644 59.3691 5.31009 51.3731 10.0266 44.022L8.34327 42.942L6.65996 41.8619C1.46044 49.9659 -0.699104 58.8534 0.197136 68.4533L2.18848 68.2674ZM8.34327 42.942L10.0266 44.022C14.8771 36.462 20.5724 30.03 27.1094 24.7111L25.8471 23.1598L24.5849 21.6084C17.6994 27.2109 11.7254 33.967 6.65996 41.8619L8.34327 42.942ZM25.8471 23.1598L27.1094 24.7111C33.6951 19.3526 40.7429 14.9321 48.2546 11.4451L47.4124 9.63101L46.5703 7.81695C38.7507 11.4469 31.4216 16.0456 24.5849 21.6084L25.8471 23.1598ZM47.4124 9.63101L48.2546 11.4451C55.7004 7.98858 63.5577 5.94492 71.8383 5.31386L71.6864 3.31964L71.5344 1.32543C62.781 1.99251 54.4557 4.15642 46.5703 7.81695L47.4124 9.63101ZM71.6864 3.31964L71.8383 5.31386C80.069 4.68661 88.0515 5.79837 95.8052 8.65216L96.496 6.77525L97.1868 4.89834C88.895 1.84652 80.3377 0.654536 71.5344 1.32543L71.6864 3.31964ZM96.496 6.77525L95.8052 8.65216C103.772 11.5845 111.958 15.0005 120.361 18.9015L121.203 17.0874L122.045 15.2733C113.551 11.3304 105.265 7.87161 97.1868 4.89834L96.496 6.77525ZM121.203 17.0874L120.361 18.9015C128.399 22.6326 134.425 28.4655 138.487 36.4582L140.27 35.5521L142.053 34.646C137.59 25.863 130.905 19.386 122.045 15.2733L121.203 17.0874ZM140.27 35.5521L138.487 36.4582C142.561 44.4739 143.409 51.9435 141.258 58.9826L143.171 59.567L145.084 60.1514C147.591 51.9465 146.505 43.4062 142.053 34.646L140.27 35.5521ZM143.171 59.567L141.258 58.9826C140.086 62.8192 139.393 65.877 139.289 68.0451C139.238 69.0979 139.307 70.2076 139.737 71.1301C139.967 71.6246 140.327 72.1195 140.871 72.4836C141.424 72.8534 142.036 73 142.618 73V71V69C142.71 69 142.899 69.0275 143.096 69.1591C143.284 69.285 143.354 69.4227 143.363 69.4408C143.366 69.4482 143.33 69.3686 143.303 69.148C143.276 68.9333 143.265 68.6352 143.284 68.2384C143.363 66.5955 143.927 63.9367 145.084 60.1514L143.171 59.567ZM142.618 71V73C142.482 73 142.273 72.9555 142.078 72.8136C141.903 72.6863 141.858 72.5658 141.872 72.5979C141.924 72.7162 142.036 73.1493 142.014 74.1136C141.97 75.9816 141.454 78.9589 140.381 83.1474L142.319 83.6437L144.256 84.14C145.343 79.8994 145.957 76.5548 146.013 74.2082C146.04 73.0653 145.944 71.9179 145.531 70.9826C145.313 70.4879 144.97 69.9722 144.435 69.5815C143.879 69.1762 143.244 69 142.618 69V71Z" fill="#F8E9D1"></path><path d="M92.0188 65.1891C92.0188 65.2062 92.0188 65.2219 92.0078 65.2391L88.4641 81.4687C88.355 82.0402 88.05 82.5558 87.6016 82.9266C87.1533 83.2973 86.5896 83.5001 86.0078 83.5H63.1063C62.5247 83.4998 61.9615 83.2968 61.5134 82.9261C61.0654 82.5553 60.7606 82.04 60.6516 81.4687L57.1078 65.2391C57.1078 65.2219 57.1 65.2062 57.0969 65.1891C56.9999 64.6517 57.0815 64.0974 57.3292 63.6108C57.5769 63.1242 57.9772 62.7321 58.4687 62.4944C58.9603 62.2566 59.5162 62.1864 60.0514 62.2943C60.5866 62.4023 61.0718 62.6825 61.4328 63.0922L66.6938 68.7625L72.2875 56.2172C72.2878 56.212 72.2878 56.2068 72.2875 56.2016C72.4875 55.7677 72.8077 55.4003 73.21 55.1427C73.6124 54.8852 74.0801 54.7483 74.5578 54.7483C75.0355 54.7483 75.5033 54.8852 75.9056 55.1427C76.308 55.4003 76.6281 55.7677 76.8281 56.2016C76.8279 56.2068 76.8279 56.212 76.8281 56.2172L82.4219 68.7625L87.6828 63.0922C88.0446 62.6856 88.5291 62.4081 89.0629 62.3019C89.5967 62.1957 90.1505 62.2666 90.6404 62.5038C91.1302 62.741 91.5292 63.1316 91.7769 63.6163C92.0245 64.1009 92.1073 64.6531 92.0125 65.1891H92.0188Z" fill="white"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						<b>Fechamento simplificado:</b> <br>Como conduzimos reuniões de fechamento de 20 a 30 minutos com 30% a 50% de conversão. <i>(sem proposta agressiva)</i>					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-ceab58f elementor-align-justify elementor-widget__width-initial elementor-widget elementor-widget-button" data-id="ceab58f" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://chat.whatsapp.com/HgWFdIUJkFO4YepCN1jV7d?mode=gi_t">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-arrow-right" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg>			</span>
+									<span class="elementor-button-text">PEGAR ROTEIRO GRÁTIS</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-49fceaf elementor-widget__width-initial elementor-widget elementor-widget-html" data-id="49fceaf" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+					<script nowprocket="">
+document.addEventListener("DOMContentLoaded", function() {
+  const carrosseis = document.querySelectorAll('.carrossel .elementor-icon-list-items');
+
+  carrosseis.forEach((carrossel) => {
+    if (carrossel) {
+      const novoContainer = document.createElement('div');
+
+      novoContainer.className = carrossel.className;
+      [...carrossel.attributes].forEach(attr => {
+        novoContainer.setAttribute(attr.name, attr.value);
+      });
+
+      const conteudo = carrossel.innerHTML;
+      const containerCarrossel = document.createElement('div');
+      containerCarrossel.classList.add('carrossel-ativo');
+
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = conteudo;
+
+      tempDiv.querySelectorAll('li').forEach(li => {
+        const span = document.createElement('span');
+
+        span.className = li.className;
+        [...li.attributes].forEach(attr => {
+          span.setAttribute(attr.name, attr.value);
+        });
+
+        span.innerHTML = li.innerHTML;
+
+        li.replaceWith(span);
+      });
+
+      containerCarrossel.innerHTML = tempDiv.innerHTML;
+
+      novoContainer.appendChild(containerCarrossel);
+
+      carrossel.replaceWith(novoContainer);
+
+      const larguraCarrossel = novoContainer.offsetWidth;
+      const larguraConteudos = containerCarrossel.scrollWidth;
+      const copias = Math.ceil(larguraCarrossel / larguraConteudos);
+
+      for (let i = 0; i < copias; i++) {
+        containerCarrossel.innerHTML += tempDiv.innerHTML;
+      }
+
+      containerCarrossel.innerHTML += tempDiv.innerHTML;
+    }
+  });
+});
+</script>				</div>
+					</div>
+				</div>
+				</div>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+        <script type="rocketlazyloadscript" id="independent-analytics-script">
+            // Do not change this comment line otherwise Speed Optimizer won't be able to detect this script
+
+            (function () {
+                function sendRequest(url, body) {
+                    if(!window.fetch) {
+                        const xhr = new XMLHttpRequest();
+                        xhr.open("POST", url, true);
+                        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                        xhr.send(JSON.stringify(body))
+                        return
+                    }
+
+                    const request = fetch(url, {
+                        method: 'POST',
+                        body: JSON.stringify(body),
+                        keepalive: true,
+                        headers: {
+                            'Content-Type': 'application/json;charset=UTF-8'
+                        }
+                    });
+                }
+                const calculateParentDistance = (child, parent) => {
+                    let count = 0;
+                    let currentElement = child;
+
+                    // Traverse up the DOM tree until we reach parent or the top of the DOM
+                    while (currentElement && currentElement !== parent) {
+                        currentElement = currentElement.parentNode;
+                        count++;
+                    }
+
+                    // If parent was not found in the hierarchy, return -1
+                    if (!currentElement) {
+                        return -1; // Indicates parent is not an ancestor of element
+                    }
+
+                    return count; // Number of layers between element and parent
+                }
+                const isMatchingClass = (linkRule, href, classes, ids) => {
+                    return classes.includes(linkRule.value)
+                }
+                const isMatchingId = (linkRule, href, classes, ids) => {
+                    return ids.includes(linkRule.value)
+                }
+                const isMatchingDomain = (linkRule, href, classes, ids) => {
+                    if(!URL.canParse(href)) {
+                        return false
+                    }
+
+                    const url = new URL(href)
+                    const host = url.host
+                    const hostsToMatch = [host]
+
+                    if(host.startsWith('www.')) {
+                        hostsToMatch.push(host.substring(4))
+                    } else {
+                        hostsToMatch.push('www.' + host)
+                    }
+
+                    return hostsToMatch.includes(linkRule.value)
+                }
+                const isMatchingExtension = (linkRule, href, classes, ids) => {
+                    if(!URL.canParse(href)) {
+                        return false
+                    }
+
+                    const url = new URL(href)
+
+                    return url.pathname.endsWith('.' + linkRule.value)
+                }
+                const isMatchingSubdirectory = (linkRule, href, classes, ids) => {
+                    if(!URL.canParse(href)) {
+                        return false
+                    }
+
+                    const url = new URL(href)
+
+                    return url.pathname.startsWith('/' + linkRule.value + '/')
+                }
+                const isMatchingProtocol = (linkRule, href, classes, ids) => {
+                    if(!URL.canParse(href)) {
+                        return false
+                    }
+
+                    const url = new URL(href)
+
+                    return url.protocol === linkRule.value + ':'
+                }
+                const isMatchingExternal = (linkRule, href, classes, ids) => {
+                    if(!URL.canParse(href) || !URL.canParse(document.location.href)) {
+                        return false
+                    }
+
+                    const matchingProtocols = ['http:', 'https:']
+                    const siteUrl = new URL(document.location.href)
+                    const linkUrl = new URL(href)
+
+                    // Links to subdomains will appear to be external matches according to JavaScript,
+                    // but the PHP rules will filter those events out.
+                    return matchingProtocols.includes(linkUrl.protocol) && siteUrl.host !== linkUrl.host
+                }
+                const isMatch = (linkRule, href, classes, ids) => {
+                    switch (linkRule.type) {
+                        case 'class':
+                            return isMatchingClass(linkRule, href, classes, ids)
+                        case 'id':
+                            return isMatchingId(linkRule, href, classes, ids)
+                        case 'domain':
+                            return isMatchingDomain(linkRule, href, classes, ids)
+                        case 'extension':
+                            return isMatchingExtension(linkRule, href, classes, ids)
+                        case 'subdirectory':
+                            return isMatchingSubdirectory(linkRule, href, classes, ids)
+                        case 'protocol':
+                            return isMatchingProtocol(linkRule, href, classes, ids)
+                        case 'external':
+                            return isMatchingExternal(linkRule, href, classes, ids)
+                        default:
+                            return false;
+                    }
+                }
+                const track = (element) => {
+                    const href = element.href ?? null
+                    const classes = Array.from(element.classList)
+                    const ids = [element.id]
+                    const linkRules = [{"type":"extension","value":"pdf"},{"type":"extension","value":"zip"},{"type":"protocol","value":"mailto"},{"type":"protocol","value":"tel"}]
+                    if(linkRules.length === 0) {
+                        return
+                    }
+
+                    // For link rules that target an id, we need to allow that id to appear
+                    // in any ancestor up to the 7th ancestor. This loop looks for those matches
+                    // and counts them.
+                    linkRules.forEach((linkRule) => {
+                        if(linkRule.type !== 'id') {
+                            return;
+                        }
+
+                        const matchingAncestor = element.closest('#' + linkRule.value)
+
+                        if(!matchingAncestor || matchingAncestor.matches('html, body')) {
+                            return;
+                        }
+
+                        const depth = calculateParentDistance(element, matchingAncestor)
+
+                        if(depth < 7) {
+                            ids.push(linkRule.value)
+                        }
+                    });
+
+                    // For link rules that target a class, we need to allow that class to appear
+                    // in any ancestor up to the 7th ancestor. This loop looks for those matches
+                    // and counts them.
+                    linkRules.forEach((linkRule) => {
+                        if(linkRule.type !== 'class') {
+                            return;
+                        }
+
+                        const matchingAncestor = element.closest('.' + linkRule.value)
+
+                        if(!matchingAncestor || matchingAncestor.matches('html, body')) {
+                            return;
+                        }
+
+                        const depth = calculateParentDistance(element, matchingAncestor)
+
+                        if(depth < 7) {
+                            classes.push(linkRule.value)
+                        }
+                    });
+
+                    const hasMatch = linkRules.some((linkRule) => {
+                        return isMatch(linkRule, href, classes, ids)
+                    })
+
+                    if(!hasMatch) {
+                        return
+                    }
+
+                    const url = "https://davivaladares.com.br/wp-content/plugins/independent-analytics/iawp-click-endpoint.php";
+                    const body = {
+                        href: href,
+                        classes: classes.join(' '),
+                        ids: ids.join(' '),
+                        ...{"payload":{"resource":"singular","singular_id":513,"page":1},"signature":"12eb2720e7244d584ebf757f2f0436fd"}                    };
+
+                    sendRequest(url, body)
+                }
+                let hasSearched = false;
+                function search() {
+                    if(hasSearched) {
+                        return;
+                    }
+                    hasSearched = true;
+
+                    if (document.hasOwnProperty("visibilityState") && document.visibilityState === "prerender") {
+                        return;
+                    }
+
+                                            if (navigator.webdriver || /bot|crawler|spider|crawling|semrushbot|chrome-lighthouse/i.test(navigator.userAgent)) {
+                            return;
+                        }
+                    
+                    let referrer_url = null;
+
+                    if (typeof document.referrer === 'string' && document.referrer.length > 0) {
+                        referrer_url = document.referrer;
+                    }
+
+                    const params = location.search.slice(1).split('&').reduce((acc, s) => {
+                        const [k, v] = s.split('=');
+                        return Object.assign(acc, {[k]: v});
+                    }, {});
+
+                    const url = "https://davivaladares.com.br/wp-json/iawp/search";
+                    const body = {
+                        referrer_url,
+                        utm_source: params.utm_source,
+                        utm_medium: params.utm_medium,
+                        utm_campaign: params.utm_campaign,
+                        utm_term: params.utm_term,
+                        utm_content: params.utm_content,
+                        gclid: params.gclid,
+                        ...{"payload":{"resource":"singular","singular_id":513,"page":1},"signature":"12eb2720e7244d584ebf757f2f0436fd"}                    };
+
+                    sendRequest(url, body)
+                }
+                document.addEventListener('mousedown', function (event) {
+                                        if (navigator.webdriver || /bot|crawler|spider|crawling|semrushbot|chrome-lighthouse/i.test(navigator.userAgent)) {
+                        return;
+                    }
+                    
+                    const element = event.target.closest('a')
+
+                    if(!element) {
+                        return
+                    }
+
+                    const isPro = false
+                    if(!isPro) {
+                        return
+                    }
+
+                    // Don't track left clicks with this event. The click event is used for that.
+                    if(event.button === 0) {
+                        return
+                    }
+
+                    track(element)
+                })
+                document.addEventListener('click', function (event) {
+                                        if (navigator.webdriver || /bot|crawler|spider|crawling|semrushbot|chrome-lighthouse/i.test(navigator.userAgent)) {
+                        return;
+                    }
+                    
+                    const element = event.target.closest('a, button, input[type="submit"], input[type="button"]')
+
+                    if(!element) {
+                        return
+                    }
+
+                    const isPro = false
+                    if(!isPro) {
+                        return
+                    }
+
+                    track(element)
+                })
+                document.addEventListener('play', function (event) {
+                                        if (navigator.webdriver || /bot|crawler|spider|crawling|semrushbot|chrome-lighthouse/i.test(navigator.userAgent)) {
+                        return;
+                    }
+                    
+                    const element = event.target.closest('audio, video')
+
+                    if(!element) {
+                        return
+                    }
+
+                    const isPro = false
+                    if(!isPro) {
+                        return
+                    }
+
+                    track(element)
+                }, true)
+                document.addEventListener("DOMContentLoaded", function (e) {
+                    search();
+                });
+                document.addEventListener("iawpSearch", function (e) {
+                    search();
+                });
+            })();
+        </script>
+        			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=942364115180583&ev=PageView&noscript=1&cd%5Bpage_title%5D=01+-+Captura+Webinar+-+Pag+01+V10.2+-+ADS&cd%5Bpost_type%5D=page&cd%5Bpost_id%5D=513&cd%5Bplugin%5D=PixelYourSite&cd%5Buser_role%5D=guest&cd%5Bevent_url%5D=davivaladares.com.br%2Fcap-web-pag-01v7-ads%2F" alt=""></noscript>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://davivaladares.com.br","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://davivaladares.com.br/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=1779141461" id="hello-theme-frontend-js" data-rocket-defer="" defer=""></script>
+<script defer="" src="js/jquery.bind-first-0.2.3.min.js" id="jquery-bind-first-js"></script>
+<script defer="" src="js/js.cookie-2.1.3.min.js" id="js-cookie-pys-js"></script>
+<script defer="" src="js/tld.min.js" id="js-tld-js"></script>
+<script id="pys-js-extra">
+var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"static","ajaxFire":false,"name":"PageView","pixelIds":["942364115180583"],"eventID":"470ca458-56a8-41bc-b789-b08c3feb2e7d","params":{"page_title":"01 - Captura Webinar - Pag 01 V10.2 - ADS","post_type":"page","post_id":513,"plugin":"PixelYourSite","user_role":"guest","event_url":"davivaladares.com.br/cap-web-pag-01v7-ads/"},"e_id":"init_event","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}]}},"dynamicEvents":{"automatic_event_form":{"facebook":{"delay":0,"type":"dyn","name":"Form","pixelIds":["942364115180583"],"eventID":"3426d7b0-a932-40ec-816f-21c5d3408bd0","params":{"page_title":"01 - Captura Webinar - Pag 01 V10.2 - ADS","post_type":"page","post_id":513,"plugin":"PixelYourSite","user_role":"guest","event_url":"davivaladares.com.br/cap-web-pag-01v7-ads/"},"e_id":"automatic_event_form","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_download":{"facebook":{"delay":0,"type":"dyn","name":"Download","extensions":["","doc","exe","js","pdf","ppt","tgz","zip","xls"],"pixelIds":["942364115180583"],"eventID":"69658943-56c6-4c20-991f-9efc2f32cd91","params":{"page_title":"01 - Captura Webinar - Pag 01 V10.2 - ADS","post_type":"page","post_id":513,"plugin":"PixelYourSite","user_role":"guest","event_url":"davivaladares.com.br/cap-web-pag-01v7-ads/"},"e_id":"automatic_event_download","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_comment":{"facebook":{"delay":0,"type":"dyn","name":"Comment","pixelIds":["942364115180583"],"eventID":"bea2a6dd-d075-4f6e-bea6-56d521149364","params":{"page_title":"01 - Captura Webinar - Pag 01 V10.2 - ADS","post_type":"page","post_id":513,"plugin":"PixelYourSite","user_role":"guest","event_url":"davivaladares.com.br/cap-web-pag-01v7-ads/"},"e_id":"automatic_event_comment","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_scroll":{"facebook":{"delay":0,"type":"dyn","name":"PageScroll","scroll_percent":30,"pixelIds":["942364115180583"],"eventID":"2fa2c5b0-0239-484e-8f4a-4947dc80e011","params":{"page_title":"01 - Captura Webinar - Pag 01 V10.2 - ADS","post_type":"page","post_id":513,"plugin":"PixelYourSite","user_role":"guest","event_url":"davivaladares.com.br/cap-web-pag-01v7-ads/"},"e_id":"automatic_event_scroll","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_time_on_page":{"facebook":{"delay":0,"type":"dyn","name":"TimeOnPage","time_on_page":30,"pixelIds":["942364115180583"],"eventID":"e92fada1-eb8a-4060-a8a7-6c0eeac6c272","params":{"page_title":"01 - Captura Webinar - Pag 01 V10.2 - ADS","post_type":"page","post_id":513,"plugin":"PixelYourSite","user_role":"guest","event_url":"davivaladares.com.br/cap-web-pag-01v7-ads/"},"e_id":"automatic_event_time_on_page","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}}},"triggerEvents":[],"triggerEventTypes":[],"facebook":{"pixelIds":["942364115180583"],"advancedMatching":{"external_id":"abcdcffcdafddaaeabecbebf"},"advancedMatchingEnabled":true,"removeMetadata":true,"wooVariableAsSimple":false,"serverApiEnabled":true,"send_external_id":null,"enabled_medical":false,"do_not_track_medical_param":["event_url","post_title","page_title","landing_page","content_name","categories","category_name","tags"],"meta_ldu":false},"debug":"","siteUrl":"https://davivaladares.com.br","ajaxUrl":"https://davivaladares.com.br/wp-admin/admin-ajax.php","ajax_event":"f556ce6d13","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","ajaxForServerStaticEvent":"1","useSendBeacon":"1","send_external_id":"1","external_id_expire":"180","track_cookie_for_subdomains":"1","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"reddit_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":"marketing","cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficLanding":"http://undefined","TrafficUtms":[],"TrafficUtmsId":[]},"GATags":{"ga_datalayer_type":"default","ga_datalayer_name":"dataLayerPYS"},"woo":{"enabled":false},"edd":{"enabled":false},"cache_bypass":"1779635181"};
+//# sourceURL=pys-js-extra
+</script>
+<script data-minify="1" defer="" src="js/public.js" id="pys-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.8" id="elementor-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.8" id="elementor-frontend-modules-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Dispositivos m\u00f3veis no modo retrato","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Dispositivos m\u00f3veis no modo paisagem","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet no modo retrato","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet no modo paisagem","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.0.8","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"e_pro_free_trial_popup":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"mega-menu":true,"e_pro_variables":true},"urls":{"assets":"https:\/\/davivaladares.com.br\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/davivaladares.com.br\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/davivaladares.com.br\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"8f986860c7","atomicFormsSendForm":"a4c22f3e97"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_footer_logo_type":"logo"},"post":{"id":513,"title":"01%20%E2%80%93%20Captura%20Webinar%20%E2%80%93%20Pag%2001%20V10.2%20%E2%80%93%20ADS%20%E2%80%93%20Davi%20Valadares","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.8" id="elementor-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.35.1" id="elementor-pro-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/davivaladares.com.br\/wp-admin\/admin-ajax.php","nonce":"23b187273f","urls":{"assets":"https:\/\/davivaladares.com.br\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/davivaladares.com.br\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/davivaladares.com.br\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.35.1" id="elementor-pro-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://davivaladares.com.br/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.35.1" id="pro-elements-handlers-js" data-rocket-defer="" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="js/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="Executar vídeo do YouTube"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=["\/wp-content\/uploads\/2026\/03\/Mentoria-frame-_1_\u2026","\/wp-content\/uploads\/2026\/03\/Mentoria-frame-_1","\/wp-content\/uploads\/2026\/03\/Mentoria-frame-_1_","\/wp-content\/uploads\/2026\/03\/Mentoria-frame-_1_.webp","Mentoria-frame-_1_.webp","Mentoria-frame-_1_","Mentoria-frame-_1"];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>	<script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}})}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(o)})}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}l(t,e){this.i().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html><!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1779635181 -->
