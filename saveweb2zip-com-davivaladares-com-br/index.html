@@ -987,7 +987,6 @@
       let nextWednesday = new Date(mexicoTime);
       const currentDay = mexicoTime.getDay();
       const currentHour = mexicoTime.getHours();
-      const currentMinutes = mexicoTime.getMinutes();
 
       // Determinar días faltantes hasta el próximo miércoles
       let daysToAdd;
@@ -1009,13 +1008,24 @@
       nextWednesday.setDate(nextWednesday.getDate() + daysToAdd);
       nextWednesday.setHours(20, 0, 0, 0);
 
-      // Calcular diferencia en días
+      // Calcular diferencia en milisegundos
       const diff = nextWednesday - mexicoTime;
-      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      const totalHours = Math.ceil(diff / (1000 * 60 * 60));
+      const days = Math.floor(totalHours / 24);
+      const hours = totalHours % 24;
 
       const countdownEl = document.querySelector('.hero-countdown');
       if (countdownEl) {
-        countdownEl.innerHTML = 'FALTA SOLO<br>' + Math.max(0, days) + ' DÍAS';
+        if (totalHours <= 24 && totalHours > 0) {
+          // Mostrar horas cuando faltan 24 horas o menos
+          countdownEl.innerHTML = 'FALTA SOLO<br>' + hours + ' HORAS';
+        } else if (totalHours > 24) {
+          // Mostrar días cuando faltan más de 24 horas
+          countdownEl.innerHTML = 'FALTA SOLO<br>' + days + ' DÍAS';
+        } else {
+          // Ya pasó el evento
+          countdownEl.innerHTML = 'FALTA SOLO<br>0 HORAS';
+        }
       }
     }
 
