@@ -979,17 +979,43 @@
 
     // Countdown timer
     function updateCountdown() {
+      // Obtener hora actual en zona horaria de Ciudad de México
       const now = new Date();
-      const targetDay = new Date();
-      targetDay.setDate(targetDay.getDate() + (3 - targetDay.getDay() + 7) % 7 || 7);
-      targetDay.setHours(20, 0, 0, 0);
+      const mexicoTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Mexico_City' }));
 
-      const diff = targetDay - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      // Calcular el próximo miércoles a las 20:00
+      let nextWednesday = new Date(mexicoTime);
+      const currentDay = mexicoTime.getDay();
+      const currentHour = mexicoTime.getHours();
+      const currentMinutes = mexicoTime.getMinutes();
+
+      // Determinar días faltantes hasta el próximo miércoles
+      let daysToAdd;
+      if (currentDay === 3) {
+        // Hoy es miércoles
+        if (currentHour >= 20) {
+          // Ya pasó las 20:00, siguiente miércoles (en 7 días)
+          daysToAdd = 7;
+        } else {
+          // No ha llegado a las 20:00 aún, es hoy mismo (0 días)
+          daysToAdd = 0;
+        }
+      } else {
+        // No es miércoles, calcular diferencia (3 = Wednesday)
+        daysToAdd = (3 - currentDay + 7) % 7;
+        if (daysToAdd === 0) daysToAdd = 7;
+      }
+
+      nextWednesday.setDate(nextWednesday.getDate() + daysToAdd);
+      nextWednesday.setHours(20, 0, 0, 0);
+
+      // Calcular diferencia en días
+      const diff = nextWednesday - mexicoTime;
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
 
       const countdownEl = document.querySelector('.hero-countdown');
       if (countdownEl) {
-        countdownEl.innerHTML = 'FALTA SOLO<br>' + days + ' DÍAS';
+        countdownEl.innerHTML = 'FALTA SOLO<br>' + Math.max(0, days) + ' DÍAS';
       }
     }
 
